@@ -38,7 +38,7 @@ const NewProject = () => {
                     className="input-text"
                     type="text"
                     name="nameProject"
-                    placeholder="Project's name"
+                    placeholder="Name Project"
                     value={nameProject}
                     onChange= {onChangeProject}
                 />
@@ -46,7 +46,7 @@ const NewProject = () => {
                 <input
                     type="submit"
                     className="btn btn-primario btn-block"
-                    value="Add project"
+                    value="Add Project"
                 />
 
             </form>

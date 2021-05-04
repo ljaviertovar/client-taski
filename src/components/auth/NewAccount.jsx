@@ -90,7 +90,7 @@ const NewAccount = () => {
                         to={'/new-account'}
                         className="enlace-cuenta"
                     >
-                        Sign in
+                        Sign In
                 </Link>
                 </div>
             </div>

@@ -68,7 +68,7 @@ const Login = () => {
                         to={'/new-account'}
                         className="enlace-cuenta"
                     >
-                        Create an account
+                        Create an Account
                 </Link>
                 </div>
             </div>

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Sidebar from '../layout/Sidebar'
 import InfoBar from '../layout/InfoBar'
+import FormTask from '../tasks/FormTask'
 
 const Proyects = () => {
     return (
@@ -13,6 +14,9 @@ const Proyects = () => {
                 <InfoBar />
 
                 <main>
+
+                    <FormTask/>
+
                     <div className="contenedor-tareas">
 
                     </div>
