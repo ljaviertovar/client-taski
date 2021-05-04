@@ -27,7 +27,7 @@ const NewProject = () => {
                 type="button"
                 className="btn btn-block btn-primario"
             >
-                New project
+                New Project
         </button>
 
             <form
