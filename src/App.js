@@ -4,15 +4,19 @@ import Login from './components/auth/Login';
 import NewAccount from './components/auth/NewAccount';
 import Proyects from './components/proyects/Proyects';
 
+import ProjectState from './context/projects/projectState';
+
 function App() {
 	return (
-		<Router>
-			<Switch>
-				<Route exact path="/" component={Login} />
-				<Route exact path="/new-account" component={NewAccount} />
-				<Route exact path="/proyects" component={Proyects} />
-			</Switch>
-		</Router>
+		<ProjectState>
+			<Router>
+				<Switch>
+					<Route exact path="/" component={Login} />
+					<Route exact path="/new-account" component={NewAccount} />
+					<Route exact path="/proyects" component={Proyects} />
+				</Switch>
+			</Router>
+		</ProjectState>
 	);
 }
 
