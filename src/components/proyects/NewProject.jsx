@@ -3,8 +3,8 @@ import projectContex from '../../context/projects/projectContext';
 
 const NewProject = () => {
 
-    const proyectsContext = useContext(projectContex);
-    const { form } = proyectsContext;
+    const projectsContext = useContext(projectContex);
+    const { form, showForm } = projectsContext;
 
     const [project, setProject] = useState({
         nameProject: ''
@@ -30,6 +30,7 @@ const NewProject = () => {
             <button
                 type="button"
                 className="btn btn-block btn-primario"
+                onClick={showForm}
             >
                 New Project
         </button>
