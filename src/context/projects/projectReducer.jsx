@@ -1,6 +1,7 @@
 import { 
     FORM_PROJECT,
-    GET_PROJECTS
+    GET_PROJECTS,
+    ADD_PROJECT
 } from '../../types';
 
 export default (state, action) => {
@@ -15,6 +16,12 @@ export default (state, action) => {
             return {
                 ...state,
                 projects: action.payload
+            }
+        case ADD_PROJECT:
+            return {
+                ...state,
+                projects: [...state.projects, action.payload],
+                form: false
             }
         default:
             return state;
