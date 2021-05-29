@@ -4,7 +4,7 @@ import projectContex from '../../context/projects/projectContext';
 const NewProject = () => {
 
     const projectsContext = useContext(projectContex);
-    const { form, showForm, addProject } = projectsContext;
+    const { form, errorform, showForm, addProject, showError } = projectsContext;
 
     const [project, setProject] = useState({
         nameProject: ''
@@ -25,7 +25,10 @@ const NewProject = () => {
         e.preventDefault();
 
         //validate data
-        if(nameProject === '') return;
+        if(nameProject === '') {
+            showError(true);
+            return
+        };
 
         // add data to context
         addProject(project);
@@ -70,6 +73,13 @@ const NewProject = () => {
                     </form>
                 )
                 : null
+            }
+
+            {errorform
+            ? (
+                <p className="mensaje error">All fields are required.</p>
+            )
+            : null
             }
 
         </Fragment>
