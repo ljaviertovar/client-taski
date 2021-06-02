@@ -6,7 +6,7 @@ import projectContex from '../../context/projects/projectContext';
 const ListTasks = () => {
 
     const projectsContext = useContext(projectContex);
-    const { actualproject } = projectsContext;
+    const { actualproject, deleteProject } = projectsContext;
 
     if(!actualproject) return <h2>Select one project</h2>
 
@@ -17,6 +17,10 @@ const ListTasks = () => {
         { nameTask: "task2", state: false },
         { nameTask: "task3", state: true }
     ];
+
+    const onClickDeleteProject = () => {
+        deleteProject(selectedPoject.id);
+    }
 
     return (
 
@@ -43,6 +47,7 @@ const ListTasks = () => {
             <button
                 type="button"
                 className="btn btn-eliminar"
+                onClick= { onClickDeleteProject }
             >
                 Delete Project &times;
             </button>

@@ -11,7 +11,7 @@ const ListProjects = () => {
         getProjects();
     },[])
 
-    if(projects.length === 0) return null;
+    if(projects.length === 0) return <p>There is not project yet. Let's create one!</p>;
 
     return (
 
