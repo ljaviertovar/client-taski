@@ -15,7 +15,7 @@ function App() {
 					<Switch>
 						<Route exact path="/" component={Login} />
 						<Route exact path="/new-account" component={NewAccount} />
-						<Route exact path="/proyects" component={Proyects} />
+						<Route exact path="/projects" component={Proyects} />
 					</Switch>
 				</Router>
 			</TaskState>

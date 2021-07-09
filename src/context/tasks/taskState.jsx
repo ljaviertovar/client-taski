@@ -3,7 +3,9 @@ import taskContext from './taskContext';
 import taskReducer from './taskReducer';
 
 import {
-    TASKS_PROJECT
+    TASKS_PROJECT,
+    ADD_TASK,
+    VALIDATE_TASK
 } from '../../types';
 
 const TaskState = props => {
@@ -23,7 +25,8 @@ const TaskState = props => {
             { nameTask: "task2", state: false, projectId: 2 },
             { nameTask: "task3", state: true, projectId: 3 }
         ],
-        tasksProject: null
+        tasksProject: null,
+        "errorTask": false
     }
 
     const [state, dispatch] = useReducer(taskReducer, initialState);
@@ -33,7 +36,24 @@ const TaskState = props => {
 
         dispatch({
             type: TASKS_PROJECT,
-            payload: projectSelected.id
+            payload: projectSelected.projectId
+        })
+
+    }
+
+    const addTask = task => {
+
+        dispatch({
+            type: ADD_TASK,
+            payload: task
+        })
+
+    }
+
+    const validateTask = () => {
+        
+        dispatch({
+            type: VALIDATE_TASK
         })
 
     }
@@ -43,7 +63,10 @@ const TaskState = props => {
             value={{
                 tasks: state.tasks,
                 tasksproject: state.tasksProject,
-                getTasks
+                errortask: state.errorTask,
+                getTasks,
+                addTask,
+                validateTask
             }}
         >
             {props.children}
