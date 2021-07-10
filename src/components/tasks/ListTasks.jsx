@@ -1,20 +1,20 @@
 import React, { Fragment, useContext } from 'react';
 import Task from '../tasks/Task'
 
-import projectContex from '../../context/projects/projectContext';
-import taskContex from '../../context/tasks/taskContext';
+import projectContext from '../../context/projects/projectContext';
+import taskContext from '../../context/tasks/taskContext';
 
 const ListTasks = () => {
 
-    const projectsContext = useContext(projectContex);
+    const projectsContext = useContext(projectContext);
     const { actualproject, deleteProject } = projectsContext;
 
-    const tasksContext = useContext(taskContex);
+    const tasksContext = useContext(taskContext);
     const { tasksproject } = tasksContext;
 
-    if(!actualproject) return <h2>Select one project</h2>
+    if (!actualproject) return <h2>Select one project</h2>
 
-    const [ selectedPoject ] = actualproject;
+    const [selectedPoject] = actualproject;
 
     const onClickDeleteProject = () => {
         deleteProject(selectedPoject.id);
@@ -24,7 +24,7 @@ const ListTasks = () => {
 
         <Fragment>
 
-            <h2>Project: { selectedPoject.nameProject }</h2>
+            <h2>Project: {selectedPoject.nameProject}</h2>
 
             <ul className="listado-tareas">
 
@@ -36,6 +36,7 @@ const ListTasks = () => {
                     )
                     : tasksproject.map(task => (
                         <Task
+                            key={task.id}
                             task={task}
                         />
                     ))
@@ -45,7 +46,7 @@ const ListTasks = () => {
             <button
                 type="button"
                 className="btn btn-eliminar"
-                onClick= { onClickDeleteProject }
+                onClick={onClickDeleteProject}
             >
                 Delete Project &times;
             </button>

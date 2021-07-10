@@ -1,13 +1,14 @@
 import React, { useState, useContext } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import projectContex from '../../context/projects/projectContext';
-import taskContex from '../../context/tasks/taskContext';
+import taskContext from '../../context/tasks/taskContext';
 
 const FormTask = () => {
 
     const projectsContext = useContext(projectContex);
     const { actualproject } = projectsContext;
-    const tasksContext = useContext(taskContex);
+    const tasksContext = useContext(taskContext);
     const { errortask, addTask, validateTask, getTasks } = tasksContext;
 
     const [task, setTask] = useState({
@@ -36,10 +37,11 @@ const FormTask = () => {
             return;
         }
 
-        task.projectId = selectedProject.projectId;
+        task.id = uuidv4();
+        task.projectId = selectedProject.id;
         task.estate = false;
         addTask(task);
-console.log(selectedProject)
+
         getTasks(selectedProject)
 
         setTask({

@@ -17,10 +17,10 @@ import {
 const ProjectState = props => {
 
     const projects = [
-        { projectId: 1, nameProject: 'pro1' },
-        { projectId: 2, nameProject: 'pro2' },
-        { projectId: 3, nameProject: 'pro3' },
-        { projectId: 4, nameProject: 'pro4' },
+        { id: 1, nameProject: 'pro1' },
+        { id: 2, nameProject: 'pro2' },
+        { id: 3, nameProject: 'pro3' },
+        { id: 4, nameProject: 'pro4' },
     ];
 
     const initialState = {
@@ -48,7 +48,7 @@ const ProjectState = props => {
     }
 
     const addProject =  project => {
-        project.projectId = uuidv4();
+        project.id = uuidv4();
 
         dispatch({
             type: ADD_PROJECT,
@@ -69,10 +69,10 @@ const ProjectState = props => {
         })
     }
 
-    const deleteProject = projectId => {
+    const deleteProject = id => {
         dispatch({
-            type: 'DELETE_PROJECT',
-            payload: projectId
+            type: DELETE_PROJECT,
+            payload: id
         })
     }
 

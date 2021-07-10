@@ -1,6 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import taskContext from '../../context/tasks/taskContext';
+import projectContex from '../../context/projects/projectContext';
 
 const Task = ({ task }) => {
+
+    const tasksContext = useContext(taskContext);
+    const { deleteTask, getTasks } = tasksContext;
+    const projectsContext = useContext(projectContex);
+    const { actualproject } = projectsContext;
+
+    const [selectedProject] = actualproject;
+
+    const taskDelete = selectedTask => {
+        
+        deleteTask(selectedTask);
+        getTasks(selectedProject)
+    }
+
     return (
 
         <li className="tarea sombra">
@@ -37,6 +53,7 @@ const Task = ({ task }) => {
                 <button
                     type="button"
                     className="btn btn-secundario"
+                    onClick = { () => taskDelete(task) }
                 >
                     Delete
                 </button>
